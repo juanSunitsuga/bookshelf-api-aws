@@ -81,18 +81,48 @@ const getAllBooksHandler = (request, h) => {
     let filteredBooks = books;
 
     if (name !== undefined) {
-        filteredBooks = filteredBooks.filter((book) =>
+        const filteredBooksName = filteredBooks.filter((book) =>
             book.name.toLowerCase().includes(name.toLowerCase())
         );
+        const response = h.response({
+            status: "success",
+            data: {
+                books: filteredBooksName.map((book) => ({
+                    id: book.id, name: book.name, publisher: book.publisher,
+                })),
+            },
+        });
+        response.code(200);
+        return response;
     }
     if (reading !== undefined) {
         const isReading = reading === '1';
-        filteredBooks = filteredBooks.filter((book) => book.reading === isReading);
+        const filteredBooksReading = filteredBooks.filter((book) => book.reading === isReading);
+        const response = h.response({
+            status: "success",
+            data: {
+                books: filteredBooksReading.map((book) => ({
+                    id: book.id, name: book.name, publisher: book.publisher,
+                })),
+            },
+        });
+        response.code(200);
+        return response;
     }
 
     if (finished !== undefined) {
         const isFinished = finished === '1';
-        filteredBooks = filteredBooks.filter((book) => book.finished === isFinished);
+        const filteredBooksFinished = filteredBooks.filter((book) => book.finished === isFinished);
+        const response = h.response({
+            status: "success",
+            data: {
+                books: filteredBooksFinished.map((book) => ({
+                    id: book.id, name: book.name, publisher: book.publisher,
+                })),
+            },
+        });
+        response.code(200);
+        return response;
     }
 
     return {
