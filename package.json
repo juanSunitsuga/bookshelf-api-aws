@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/juanSunitsuga/bookshelf-api-aws/issues"
   },
-  "homepage": "https://github.com/juanSunitsuga/bookshelf-api-aws#readme"
+  "homepage": "https://github.com/juanSunitsuga/bookshelf-api-aws#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
 }
