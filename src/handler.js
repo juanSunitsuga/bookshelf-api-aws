@@ -88,7 +88,9 @@ const getAllBooksHandler = (request, h) => {
             status: "success",
             data: {
                 books: filteredBooksName.map((book) => ({
-                    id: book.id, name: book.name, publisher: book.publisher,
+                    id: book.id,
+                    name: book.name,
+                    publisher: book.publisher,
                 })),
             },
         });
@@ -102,7 +104,9 @@ const getAllBooksHandler = (request, h) => {
             status: "success",
             data: {
                 books: filteredBooksReading.map((book) => ({
-                    id: book.id, name: book.name, publisher: book.publisher,
+                    id: book.id,
+                    name: book.name,
+                    publisher: book.publisher,
                 })),
             },
         });
@@ -117,7 +121,9 @@ const getAllBooksHandler = (request, h) => {
             status: "success",
             data: {
                 books: filteredBooksFinished.map((book) => ({
-                    id: book.id, name: book.name, publisher: book.publisher,
+                    id: book.id,
+                    name: book.name,
+                    publisher: book.publisher,
                 })),
             },
         });
