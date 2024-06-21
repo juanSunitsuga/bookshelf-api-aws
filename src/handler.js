@@ -12,7 +12,6 @@ const addBookHandler = (request, h) => {
     readPage,
     reading
   } = request.payload;
-  const id = nanoid(16);
   const insertedAt = new Date().toISOString();
   const updatedAt = insertedAt;
 
@@ -29,11 +28,7 @@ const addBookHandler = (request, h) => {
     updatedAt
   };
 
-  books.push(newBook);
-
-  const isSuccess = books.filter((book) => book.id === id).length > 0;
-
-  if (!name || name.trim() === '') {
+  if (name === undefined) {
     const response = h.response({
       status: 'fail',
       message: 'Gagal memperbarui/buat buku. Mohon isi nama buku',
@@ -45,17 +40,21 @@ const addBookHandler = (request, h) => {
   if(readPage > pageCount){
     const response = h.response({
       status: 'fail',
-      message: 'Gagal memperbarui buku. readPage tidak boleh lebih besar dari pageCount',
+      message: 'Gagal memperbarui buku. test readPage tidak boleh lebih besar dari pageCount',
     });
 
-    response.code(200);
+    response.code(400);
     return response;
   }
 
+  books.push(newBook);
+  const id = nanoid(16);
+  const isSuccess = books.filter((book) => book.id === id).length > 0;
+
   if (isSuccess) {
     const response = h.response({
-      status: "fail",
-      message: "Gagal menambahkan buku. Mohon isi nama buku",
+      status: "success",
+      message: "Buku berhasil ditambahkan",
       data: {
         noteId: id,
       },
@@ -115,10 +114,8 @@ const editBookByIdHandler = (request, h) => {
     readPage,
     reading
   } = request.payload;
-  const updatedAt = new Date().toISOString();
-  const index = books.findIndex((book) => book.id === id);
 
-  if (!name || name.trim() === '') {
+  if (name === undefined) {
     const response = h.response({
       status: 'fail',
       message: 'Gagal memperbarui/buat buku. Mohon isi nama buku',
@@ -136,6 +133,9 @@ const editBookByIdHandler = (request, h) => {
     response.code(200);
     return response;
   }
+
+  const updatedAt = new Date().toISOString();
+  const index = books.findIndex((book) => book.id === id);
 
   if (index !== -1) {
     books[index] = {
