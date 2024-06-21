@@ -22,8 +22,18 @@ const routes = [
     },
     {
         method: 'GET',
-        path: '/books/{bookId}',
-        handler: getBookByIdHandler,
+        path: '/books/{name}',
+        handler: getBookByIdName,
+    },
+    {
+        method: 'GET',
+        path: '/books/{readingStatus}',
+        handler: getBookByIdReading,
+    },
+    {
+        method: 'GET',
+        path: '/books/{finishedStatus}',
+        handler: getBookByIdFinished,
     },
     {
         method: 'PUT',
