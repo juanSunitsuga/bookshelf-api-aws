@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/juanSunitsuga/bookshelf-api-aws#readme",
   "devDependencies": {
+    "eslint": "^9.5.0",
     "nodemon": "^3.1.4"
   },
   "dependencies": {
