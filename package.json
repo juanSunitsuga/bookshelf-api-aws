@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/juanSunitsuga/bookshelf-api-aws#readme",
   "devDependencies": {
-    "eslint": "^9.5.0",
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.29.1",
     "nodemon": "^3.1.4"
   },
   "dependencies": {
