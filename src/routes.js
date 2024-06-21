@@ -21,21 +21,6 @@ const routes = [
         handler: getAllBooksHandler,
     },
     {
-        method: 'GET',
-        path: '/books/{name}',
-        handler: getBookByIdName,
-    },
-    {
-        method: 'GET',
-        path: '/books/{readingStatus}',
-        handler: getBookByIdReading,
-    },
-    {
-        method: 'GET',
-        path: '/books/{finishedStatus}',
-        handler: getBookByIdFinished,
-    },
-    {
         method: 'PUT',
         path: '/books/{bookId}',
         handler: editBookByIdHandler,
